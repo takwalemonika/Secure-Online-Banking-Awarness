@@ -1,0 +1,1772 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#OB5ED7">
+
+<title>Secure Online Banking Awareness | CEP Project</title>
+
+
+<style>
+
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f4f7fb;
+    color: #222;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    background: linear-gradient(135deg, #063970, #0b65a3);
+    color: white;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 18px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ffd166;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 6%;
+    background: linear-gradient(135deg, #e8f3ff, #ffffff);
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: #063970;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 19px;
+    color: #444;
+    margin-bottom: 28px;
+}
+
+.security-badge {
+    font-size: 70px;
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    background: #063970;
+    color: white;
+    padding: 13px 25px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #0b65a3;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    padding: 65px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    color: #063970;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.section-title p {
+    color: #666;
+}
+
+
+/* =========================
+   CARDS
+========================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    color: #063970;
+    margin-bottom: 10px;
+}
+
+.safe {
+    background: #effbf3;
+    border-left: 5px solid #2a9d5b;
+}
+
+.danger {
+    background: #fff1f1;
+    border-left: 5px solid #d62828;
+}
+
+.warning {
+    background: #fff8e6;
+    border-left: 5px solid #f4a261;
+}
+
+
+/* =========================
+   VIDEO SECTION
+========================= */
+
+.video-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 15px;
+    background: #eee;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-fallback {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.video-fallback a {
+    color: #0d6efd;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+/* =========================
+   INTERACTIVE ACTIVITY
+========================= */
+
+.activity-box {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.09);
+}
+
+.scam-message {
+    background: #f8f9fa;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 22px;
+    margin: 20px 0;
+}
+
+.fake-message {
+    background: #fff4f4;
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 5px solid #d62828;
+}
+
+.activity-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.safe-btn {
+    background: #198754;
+}
+
+.danger-btn {
+    background: #dc3545;
+}
+
+.activity-result {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: none;
+}
+
+
+/* =========================
+   PASSWORD CHECKER
+========================= */
+
+.password-box {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.09);
+}
+
+.password-box input {
+    width: 100%;
+    padding: 14px;
+    margin: 15px 0;
+    border: 2px solid #ddd;
+    border-radius: 7px;
+    font-size: 16px;
+}
+
+.strength-bar {
+    width: 100%;
+    height: 12px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.strength-fill {
+    height: 100%;
+    width: 0%;
+    transition: 0.3s;
+}
+
+#strengthText {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   UPI ACTIVITY
+========================= */
+
+.upi-card {
+    max-width: 750px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.09);
+}
+
+.upi-option {
+    padding: 16px;
+    margin: 12px 0;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.upi-option:hover {
+    background: #eef6ff;
+    border-color: #0b65a3;
+}
+
+#upiResult {
+    margin-top: 20px;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+
+/* =========================
+   STEPS
+========================= */
+
+.steps {
+    max-width: 850px;
+    margin: auto;
+}
+
+.step {
+    display: flex;
+    gap: 20px;
+    background: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+}
+
+.number {
+    min-width: 45px;
+    height: 45px;
+    background: #063970;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.question {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.question p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-container {
+    max-width: 800px;
+    margin: 0 auto 25px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #0b65a3;
+    transition: 0.3s;
+}
+
+
+/* =========================
+   EMERGENCY
+========================= */
+
+.emergency {
+    background: #063970;
+    color: white;
+    text-align: center;
+}
+
+.emergency h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.emergency p {
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #021f3d;
+    color: white;
+    text-align: center;
+    padding: 28px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav {
+        text-align: center;
+    }
+
+    nav a {
+        margin: 5px;
+        font-size: 13px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .video-container iframe {
+        height: 250px;
+    }
+
+    section {
+        padding: 45px 5%;
+    }
+
+    .step {
+        flex-direction: column;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="logo">
+        🔐 Secure Online Banking Awareness
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#video">Learn</a>
+        <a href="#tips">Safety</a>
+        <a href="#activities">Activities</a>
+        <a href="#quiz">Quiz</a>
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="security-badge">🔐</div>
+
+        <h1>Secure Online Banking Awareness</h1>
+
+        <p>
+            A Community Engagement Program (CEP) Project
+            promoting safe and responsible use of Online Banking,
+            UPI and Digital Financial Services.
+        </p>
+
+        <a href="#video" class="btn">
+            🎥 Start Learning
+        </a>
+
+        <a href="#activities" class="btn">
+            🎯 Try Activities
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTRODUCTION
+========================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>Why Online Banking Security Matters?</h2>
+
+        <p>
+            Digital banking makes financial transactions fast and convenient,
+            but careless use can expose users to fraud and cybercrime.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card safe">
+
+            <div class="icon">🔒</div>
+
+            <h3>Protect Your Money</h3>
+
+            <p>
+                Follow basic security practices to reduce the risk
+                of unauthorized transactions.
+            </p>
+
+        </div>
+
+
+        <div class="card safe">
+
+            <div class="icon">📱</div>
+
+            <h3>Use Digital Services Safely</h3>
+
+            <p>
+                Use trusted banking applications and official websites
+                for financial transactions.
+            </p>
+
+        </div>
+
+
+        <div class="card safe">
+
+            <div class="icon">🛡️</div>
+
+            <h3>Prevent Cyber Fraud</h3>
+
+            <p>
+                Learn how scammers use fake calls, messages and links
+                to steal financial information.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     VIDEO
+========================= -->
+
+<section class="video-section" id="video">
+
+    <div class="section-title">
+
+        <h2>🎥 Learning Video</h2>
+
+        <p>
+            Watch this video to learn basic online banking and
+            cyber-fraud safety practices.
+        </p>
+
+    </div>
+
+
+    <div class="video-container">
+    <iframe
+        src="https://www.youtube-nocookie.com/embed/vBH4nrJtKiI"
+        title="Cyber Awareness on UPI Frauds - SBI"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+<div class="video-caption">
+    🎓 <strong>Watch the complete video before starting the activities.</strong>
+</div>
+
+</section>
+
+
+<!-- =========================
+     SAFETY TIPS
+========================= -->
+
+<section id="tips">
+
+    <div class="section-title">
+
+        <h2>🔐 Essential Banking Safety Tips</h2>
+
+        <p>
+            Follow these simple rules whenever you use online banking.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">🔑</div>
+
+            <h3>Strong Password</h3>
+
+            <p>
+                Use a strong and unique password.
+                Never reuse your banking password on other websites.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🔢</div>
+
+            <h3>Protect OTP</h3>
+
+            <p>
+                Never share OTP, PIN, CVV or password with anyone,
+                even if they claim to be a bank employee.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">📲</div>
+
+            <h3>UPI Safety</h3>
+
+            <p>
+                Do not enter your UPI PIN just to receive money.
+                Always check the transaction details before paying.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🌐</div>
+
+            <h3>Check Website</h3>
+
+            <p>
+                Access banking services through the official bank
+                website or official mobile application.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">📶</div>
+
+            <h3>Avoid Unsafe Wi-Fi</h3>
+
+            <p>
+                Avoid sensitive banking transactions on unsecured
+                public Wi-Fi networks.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">🔔</div>
+
+            <h3>Enable Alerts</h3>
+
+            <p>
+                Keep transaction SMS, email and app notifications enabled.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     COMMON SCAMS
+========================= -->
+
+<section id="scams">
+
+    <div class="section-title">
+
+        <h2>🚨 Common Online Banking Scams</h2>
+
+        <p>
+            Learn how scammers try to deceive users.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card danger">
+
+            <div class="icon">📞</div>
+
+            <h3>Fake Bank Calls</h3>
+
+            <p>
+                Fraudsters may pretend to be bank employees
+                and ask for OTP, PIN or CVV.
+            </p>
+
+        </div>
+
+
+        <div class="card danger">
+
+            <div class="icon">💬</div>
+
+            <h3>Fake SMS / Messages</h3>
+
+            <p>
+                Messages may claim your account will be blocked
+                and ask you to click a suspicious link.
+            </p>
+
+        </div>
+
+
+        <div class="card danger">
+
+            <div class="icon">🎁</div>
+
+            <h3>Prize & Lottery Scams</h3>
+
+            <p>
+                Never send money or banking information to claim
+                an unexpected prize.
+            </p>
+
+        </div>
+
+
+        <div class="card danger">
+
+            <div class="icon">📱</div>
+
+            <h3>Remote Access Scams</h3>
+
+            <p>
+                Never install unknown remote-access applications
+                because an unknown caller asks you to.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INTERACTIVE ACTIVITIES
+========================= -->
+
+<section id="activities">
+
+    <div class="section-title">
+
+        <h2>🎯 Interactive Learning Activities</h2>
+
+        <p>
+            Learn by doing! Try these activities.
+        </p>
+
+    </div>
+
+
+    <!-- ACTIVITY 1 -->
+
+    <div class="activity-box">
+
+        <h2>🕵️ Activity 1: Spot the Scam</h2>
+
+        <p>
+            Read the message below and decide whether it is
+            <strong>SAFE</strong> or a <strong>SCAM</strong>.
+        </p>
+
+
+        <div class="scam-message">
+
+            <div class="fake-message">
+
+                <strong>📱 SMS Example</strong>
+
+                <p>
+                    "Dear Customer, your bank account will be blocked
+                    today. Click this link immediately to update your
+                    KYC and avoid account suspension."
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="activity-buttons">
+
+            <button
+                class="btn safe-btn"
+                onclick="scamAnswer('safe')">
+                ✅ SAFE
+            </button>
+
+            <button
+                class="btn danger-btn"
+                onclick="scamAnswer('scam')">
+                🚨 SCAM
+            </button>
+
+        </div>
+
+
+        <div id="scamResult" class="activity-result"></div>
+
+    </div>
+
+
+    <br><br>
+
+
+    <!-- ACTIVITY 2 -->
+
+    <div class="password-box">
+
+        <h2>🔐 Activity 2: Password Strength Checker</h2>
+
+        <p>
+            Type a sample password to understand password strength.
+            <strong>Do not enter your real banking password.</strong>
+        </p>
+
+
+        <input
+            type="password"
+            id="passwordInput"
+            placeholder="Enter a sample password"
+            oninput="checkPassword()">
+
+
+        <div class="strength-bar">
+
+            <div
+                id="strengthFill"
+                class="strength-fill">
+            </div>
+
+        </div>
+
+
+        <p id="strengthText">
+            Password strength: -
+        </p>
+
+    </div>
+
+
+    <br><br>
+
+
+    <!-- ACTIVITY 3 -->
+
+    <div class="upi-card">
+
+        <h2>📱 Activity 3: UPI Safety Challenge</h2>
+
+        <p>
+            Someone says: "I am sending you ₹5,000.
+            Scan this QR code and enter your UPI PIN to receive it."
+        </p>
+
+        <br>
+
+        <p><strong>What should you do?</strong></p>
+
+
+        <div
+            class="upi-option"
+            onclick="upiAnswer(false)">
+            ❌ Scan the QR code and enter the UPI PIN
+        </div>
+
+
+        <div
+            class="upi-option"
+            onclick="upiAnswer(true)">
+            ✅ Do not enter the PIN; verify the request and use
+            official channels if needed
+        </div>
+
+
+        <div id="upiResult"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DO'S AND DON'TS
+========================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>✅ Do's and ❌ Don'ts</h2>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card safe">
+
+            <h3>✅ DO</h3>
+
+            <p>✔ Use official banking applications.</p>
+
+            <p>✔ Keep your phone and apps updated.</p>
+
+            <p>✔ Use strong passwords.</p>
+
+            <p>✔ Check transaction alerts.</p>
+
+            <p>✔ Report suspicious transactions quickly.</p>
+
+        </div>
+
+
+        <div class="card danger">
+
+            <h3>❌ DON'T</h3>
+
+            <p>✘ Don't share OTP or PIN.</p>
+
+            <p>✘ Don't click unknown links.</p>
+
+            <p>✘ Don't share CVV/passwords.</p>
+
+            <p>✘ Don't install unknown apps.</p>
+
+            <p>✘ Don't trust unexpected urgent payment requests.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FRAUD RESPONSE
+========================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>🆘 What To Do If You Suspect Fraud?</h2>
+
+        <p>
+            Act quickly if you notice an unauthorized transaction.
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+
+        <div class="step">
+
+            <div class="number">1</div>
+
+            <div>
+
+                <h3>Contact Your Bank</h3>
+
+                <p>
+                    Immediately contact your bank using its
+                    official customer-care channel.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">2</div>
+
+            <div>
+
+                <h3>Secure Your Account</h3>
+
+                <p>
+                    Follow your bank's instructions to block cards,
+                    change credentials or secure the account.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">3</div>
+
+            <div>
+
+                <h3>Report Cyber Fraud</h3>
+
+                <p>
+                    Report suspected cyber financial fraud through
+                    the appropriate official channels.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="number">4</div>
+
+            <div>
+
+                <h3>Save Evidence</h3>
+
+                <p>
+                    Keep transaction details, screenshots,
+                    messages and other relevant information.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     QUIZ
+========================= -->
+
+<section id="quiz">
+
+    <div class="section-title">
+
+        <h2>📝 Online Banking Safety Quiz</h2>
+
+        <p>
+            Test your knowledge.
+        </p>
+
+    </div>
+
+
+    <div class="progress-container">
+
+        <p>
+            Quiz Progress:
+            <span id="progressText">0 / 8</span>
+        </p>
+
+        <div class="progress-bar">
+
+            <div
+                id="progressFill"
+                class="progress-fill">
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="quiz">
+
+
+        <!-- Q1 -->
+
+        <div class="question">
+
+            <p>
+                1. Should you share your OTP with a bank employee?
+            </p>
+
+            <label>
+                <input type="radio" name="q1" value="wrong"
+                onchange="updateProgress()">
+                Yes
+            </label>
+
+            <label>
+                <input type="radio" name="q1" value="correct"
+                onchange="updateProgress()">
+                No
+            </label>
+
+        </div>
+
+
+        <!-- Q2 -->
+
+        <div class="question">
+
+            <p>
+                2. What should you do if you receive a suspicious
+                banking link?
+            </p>
+
+            <label>
+                <input type="radio" name="q2" value="correct"
+                onchange="updateProgress()">
+                Ignore it and verify through official channels
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="wrong"
+                onchange="updateProgress()">
+                Click immediately
+            </label>
+
+        </div>
+
+
+        <!-- Q3 -->
+
+        <div class="question">
+
+            <p>
+                3. Is it safe to share your UPI PIN to receive money?
+            </p>
+
+            <label>
+                <input type="radio" name="q3" value="wrong"
+                onchange="updateProgress()">
+                Yes
+            </label>
+
+            <label>
+                <input type="radio" name="q3" value="correct"
+                onchange="updateProgress()">
+                No
+            </label>
+
+        </div>
+
+
+        <!-- Q4 -->
+
+        <div class="question">
+
+            <p>
+                4. What should you do after noticing an
+                unauthorized transaction?
+            </p>
+
+            <label>
+                <input type="radio" name="q4" value="correct"
+                onchange="updateProgress()">
+                Contact the bank immediately
+            </label>
+
+            <label>
+                <input type="radio" name="q4" value="wrong"
+                onchange="updateProgress()">
+                Ignore it
+            </label>
+
+        </div>
+
+
+        <!-- Q5 -->
+
+        <div class="question">
+
+            <p>
+                5. Should you share your banking password with anyone?
+            </p>
+
+            <label>
+                <input type="radio" name="q5" value="correct"
+                onchange="updateProgress()">
+                No
+            </label>
+
+            <label>
+                <input type="radio" name="q5" value="wrong"
+                onchange="updateProgress()">
+                Yes
+            </label>
+
+        </div>
+
+
+        <!-- Q6 -->
+
+        <div class="question">
+
+            <p>
+                6. Someone calls asking for your banking PIN.
+                What should you do?
+            </p>
+
+            <label>
+                <input type="radio" name="q6" value="correct"
+                onchange="updateProgress()">
+                Refuse to share it
+            </label>
+
+            <label>
+                <input type="radio" name="q6" value="wrong"
+                onchange="updateProgress()">
+                Give the PIN
+            </label>
+
+        </div>
+
+
+        <!-- Q7 -->
+
+        <div class="question">
+
+            <p>
+                7. Should you scan an unknown QR code?
+            </p>
+
+            <label>
+                <input type="radio" name="q7" value="correct"
+                onchange="updateProgress()">
+                No, it may be unsafe
+            </label>
+
+            <label>
+                <input type="radio" name="q7" value="wrong"
+                onchange="updateProgress()">
+                Yes, always
+            </label>
+
+        </div>
+
+
+        <!-- Q8 -->
+
+        <div class="question">
+
+            <p>
+                8. Which information should you never share?
+            </p>
+
+            <label>
+                <input type="radio" name="q8" value="correct"
+                onchange="updateProgress()">
+                OTP and PIN
+            </label>
+
+            <label>
+                <input type="radio" name="q8" value="wrong"
+                onchange="updateProgress()">
+                Your Name
+            </label>
+
+        </div>
+
+
+        <button class="btn" onclick="checkQuiz()">
+            Submit Quiz
+        </button>
+
+
+        <button
+            class="btn"
+            onclick="resetQuiz()">
+            Reset
+        </button>
+
+
+        <div id="result"></div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     EMERGENCY
+========================= -->
+
+<section class="emergency">
+
+    <h2>🚨 Stay Alert. Stay Secure.</h2>
+
+    <p>
+        Your banking credentials are private.
+    </p>
+
+    <p>
+        Never share your OTP, PIN, CVV or password with others.
+    </p>
+
+    <p>
+        <strong>
+            Think Before You Click • Verify Before You Pay • Report Quickly
+        </strong>
+    </p>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        <strong>🔐 Secure Online Banking Awareness</strong>
+    </p>
+
+    <p>
+        Community Engagement Program (CEP) Project
+    </p>
+
+    <p>
+        Digital Banking & Cyber Safety Awareness
+    </p>
+
+    <p>
+        © 2026 CEP Project
+    </p>
+
+</footer>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+/* =========================
+   SCAM ACTIVITY
+========================= */
+
+function scamAnswer(answer) {
+
+    let result = document.getElementById("scamResult");
+
+    result.style.display = "block";
+
+    if (answer === "scam") {
+
+        result.innerHTML =
+            "🎉 Correct! This is a SCAM warning sign. " +
+            "Do not click suspicious links or provide banking information.";
+
+        result.style.background = "#effbf3";
+        result.style.color = "#146c43";
+
+    } else {
+
+        result.innerHTML =
+            "❌ Not quite. This message contains common scam warning signs. " +
+            "Verify through official banking channels.";
+
+        result.style.background = "#fff1f1";
+        result.style.color = "#b02a37";
+
+    }
+
+}
+
+
+/* =========================
+   PASSWORD STRENGTH
+========================= */
+
+function checkPassword() {
+
+    let password =
+        document.getElementById("passwordInput").value;
+
+    let fill =
+        document.getElementById("strengthFill");
+
+    let text =
+        document.getElementById("strengthText");
+
+    let score = 0;
+
+
+    if (password.length >= 8) {
+        score++;
+    }
+
+    if (/[A-Z]/.test(password)) {
+        score++;
+    }
+
+    if (/[a-z]/.test(password)) {
+        score++;
+    }
+
+    if (/[0-9]/.test(password)) {
+        score++;
+    }
+
+    if (/[^A-Za-z0-9]/.test(password)) {
+        score++;
+    }
+
+
+    if (password.length === 0) {
+
+        fill.style.width = "0%";
+        text.innerHTML = "Password strength: -";
+
+    }
+
+    else if (score <= 2) {
+
+        fill.style.width = "30%";
+        text.innerHTML =
+            "🔴 Weak Password";
+
+    }
+
+    else if (score <= 4) {
+
+        fill.style.width = "65%";
+        text.innerHTML =
+            "🟡 Medium Password";
+
+    }
+
+    else {
+
+        fill.style.width = "100%";
+        text.innerHTML =
+            "🟢 Strong Password";
+
+    }
+
+}
+
+
+/* =========================
+   UPI ACTIVITY
+========================= */
+
+function upiAnswer(correct) {
+
+    let result =
+        document.getElementById("upiResult");
+
+
+    if (correct) {
+
+        result.innerHTML =
+            "🎉 Correct! Never enter your UPI PIN just to receive money. " +
+            "Always verify what you are authorizing.";
+
+        result.style.background = "#effbf3";
+        result.style.color = "#146c43";
+
+    } else {
+
+        result.innerHTML =
+            "❌ Be careful! Entering your UPI PIN can authorize a payment. " +
+            "Do not enter it just to receive money.";
+
+        result.style.background = "#fff1f1";
+        result.style.color = "#b02a37";
+
+    }
+
+}
+
+
+/* =========================
+   QUIZ PROGRESS
+========================= */
+
+function updateProgress() {
+
+    let answered = 0;
+
+    for (let i = 1; i <= 8; i++) {
+
+        let answer =
+            document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+        if (answer) {
+            answered++;
+        }
+
+    }
+
+
+    document.getElementById("progressText").innerHTML =
+        answered + " / 8";
+
+
+    document.getElementById("progressFill").style.width =
+        ((answered / 8) * 100) + "%";
+
+}
+
+
+/* =========================
+   QUIZ CHECK
+========================= */
+
+function checkQuiz() {
+
+    let score = 0;
+    let answered = 0;
+
+
+    for (let i = 1; i <= 8; i++) {
+
+        let answer =
+            document.querySelector(
+                'input[name="q' + i + '"]:checked'
+            );
+
+
+        if (answer) {
+
+            answered++;
+
+            if (answer.value === "correct") {
+                score++;
+            }
+
+        }
+
+    }
+
+
+    let result =
+        document.getElementById("result");
+
+
+    if (answered < 8) {
+
+        result.innerHTML =
+            "⚠️ Please answer all 8 questions.";
+
+        return;
+
+    }
+
+
+    let percentage =
+        Math.round((score / 8) * 100);
+
+
+    if (score === 8) {
+
+        result.innerHTML =
+            "🏆 Excellent! " +
+            "<br>Your Score: " + score + " / 8" +
+            "<br>Percentage: " + percentage + "%" +
+            "<br>🎉 You are well aware of online banking safety.";
+
+    }
+
+    else if (score >= 6) {
+
+        result.innerHTML =
+            "👏 Very Good!" +
+            "<br>Your Score: " + score + " / 8" +
+            "<br>Percentage: " + percentage + "%" +
+            "<br>Keep following safe banking practices.";
+
+    }
+
+    else if (score >= 4) {
+
+        result.innerHTML =
+            "👍 Good Attempt!" +
+            "<br>Your Score: " + score + " / 8" +
+            "<br>Percentage: " + percentage + "%" +
+            "<br>Review the safety tips and try again.";
+
+    }
+
+    else {
+
+        result.innerHTML =
+            "📚 Keep Learning!" +
+            "<br>Your Score: " + score + " / 8" +
+            "<br>Percentage: " + percentage + "%" +
+            "<br>Please review the learning section.";
+
+    }
+
+}
+
+
+/* =========================
+   RESET QUIZ
+========================= */
+
+function resetQuiz() {
+
+    for (let i = 1; i <= 8; i++) {
+
+        let answers =
+            document.querySelectorAll(
+                'input[name="q' + i + '"]'
+            );
+
+        answers.forEach(function(answer) {
+            answer.checked = false;
+        });
+
+    }
+
+
+    document.getElementById("result").innerHTML = "";
+
+    document.getElementById("progressText").innerHTML =
+        "0 / 8";
+
+    document.getElementById("progressFill").style.width =
+        "0%";
+
+}
+
+</script>
+
+
+</body>
+</html>
+```
