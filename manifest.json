@@ -1,7 +1,7 @@
 {
   "name": "Secure Online Banking Awareness",
   "short_name": "Online Banking",
-  "id": "/secure-online-banking/",
+  "id": "/Secure-Online-Banking-Awarness/",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#FFFFFF",
